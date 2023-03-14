@@ -30,8 +30,8 @@ def hello():
 # url: ?ids=["10022", "9965"]
 @app.route('/readNumbersByID')
 def get_numbers_by_id():
-    # if 'ids' not in request.args:
-    #     return 'field "ids" not found', 400
+    if 'ids' not in request.form:
+        return 'field "ids" not found', 400
     ids = request.form.getlist('ids')
     res = []
     for id in ids:
